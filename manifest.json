@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "DueHelper",
+  "version": "0.4.0",
+  "description": "查看 Canvas LMS 的作业截止日期与提交状态",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DueHelper",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "permissions": ["storage"],
+  "optional_host_permissions": ["https://*/*"]
+}

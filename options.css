@@ -1,0 +1,243 @@
+:root {
+  color-scheme: dark light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+
+  --fg: #f0f0f4;
+  --fg-dim: #b5b5c2;
+  --fg-dimmer: #7e7e8c;
+
+  --bg-solid: #0e0a1f;
+  --bg-glow-1: rgba(120, 80, 200, 0.28);
+  --bg-glow-2: rgba(50, 100, 200, 0.22);
+  --bg-linear: linear-gradient(160deg, #1a1533 0%, #0e0a1f 55%, #050307 100%);
+
+  --card-bg: rgba(28, 26, 46, 0.60);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-highlight: rgba(255, 255, 255, 0.10);
+  --card-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25);
+
+  --row-hover: rgba(255, 255, 255, 0.05);
+  --border-soft: rgba(255, 255, 255, 0.08);
+
+  --accent: #7fbfff;
+  --error: #ff8080;
+  --ok: #7bd88f;
+
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --input-bg-focus: rgba(255, 255, 255, 0.10);
+  --code-bg: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --fg: #14151a;
+    --fg-dim: #4b4d57;
+    --fg-dimmer: #7a7d88;
+
+    --bg-solid: #b8c3db;
+    --bg-glow-1: rgba(140, 175, 240, 0.55);
+    --bg-glow-2: rgba(200, 165, 235, 0.45);
+    --bg-linear: linear-gradient(160deg, #f2f5fb 0%, #c8d1e6 50%, #97a4c3 100%);
+
+    --card-bg: rgba(255, 255, 255, 0.78);
+    --card-border: rgba(255, 255, 255, 0.85);
+    --card-highlight: rgba(255, 255, 255, 0.75);
+    --card-shadow:
+      0 14px 30px rgba(40, 55, 100, 0.16),
+      0 2px 6px rgba(40, 55, 100, 0.10);
+
+    --row-hover: rgba(255, 255, 255, 0.55);
+    --border-soft: rgba(40, 55, 100, 0.10);
+
+    --accent: #2860c8;
+    --error: #c00;
+    --ok: #1e7a34;
+
+    --input-bg: rgba(255, 255, 255, 0.65);
+    --input-bg-focus: rgba(255, 255, 255, 0.90);
+    --code-bg: rgba(40, 55, 100, 0.10);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  color: var(--fg);
+  background-color: var(--bg-solid);
+  background-image:
+    radial-gradient(circle at 15% 5%,  var(--bg-glow-1), transparent 45%),
+    radial-gradient(circle at 85% 95%, var(--bg-glow-2), transparent 50%),
+    var(--bg-linear);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+}
+
+main {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 14px;
+  padding: 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.hint {
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.page-heading {
+  margin: 20px 4px 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+}
+
+.page-hint { padding: 0 4px 10px; }
+
+#courses-status,
+#host-status {
+  font-size: 12px;
+  min-height: 16px;
+}
+
+#courses-status {
+  color: var(--fg-dim);
+  padding: 8px 4px 12px;
+}
+
+#courses-status.error { color: var(--error); }
+
+#host-status {
+  margin-top: 10px;
+}
+#host-status.error { color: var(--error); }
+#host-status.ok    { color: var(--ok); }
+
+/* 卡片:host 设置块 + 每个 term-group */
+.settings-section,
+.term-group {
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow), inset 0 1px 0 var(--card-highlight);
+}
+
+.section-title,
+.term-title {
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.host-form {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  margin-top: 12px;
+}
+
+.host-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--input-bg);
+  color: var(--fg);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.host-form input:focus {
+  border-color: var(--accent);
+  background: var(--input-bg-focus);
+}
+
+.host-form button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, transform 0.08s ease;
+}
+.host-form button:hover  { opacity: 0.88; }
+.host-form button:active { transform: scale(0.98); }
+.host-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--code-bg);
+}
+
+.course-row {
+  display: grid;
+  grid-template-columns: 20px 96px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 7px 8px;
+  margin: 0 -8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.course-row:hover { background: var(--row-hover); }
+
+.course-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.code {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-dim);
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name { font-size: 13.5px; }

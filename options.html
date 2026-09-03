@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>DueHelper — 设置</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>DueHelper 设置</h1>
+
+    <section class="settings-section">
+      <h2 class="section-title">Canvas 域名</h2>
+      <p class="hint">
+        你所在学校的 Canvas 域名,例如 <code>canvas.example.edu</code>。
+        点击保存时浏览器会弹窗请求访问该域名的权限,授权后才能拉取数据。
+      </p>
+      <div class="host-form">
+        <input id="host-input" type="text" placeholder="canvas.example.edu"
+               autocomplete="off" spellcheck="false" autocapitalize="off">
+        <button id="save-host" type="button">保存并授权</button>
+      </div>
+      <div id="host-status"></div>
+    </section>
+
+    <h2 class="page-heading">课程可见性</h2>
+    <p class="hint page-hint">
+      勾选 = 在 popup 中显示。取消勾选的课程会被过滤掉,不出现在任何区块。
+      新学期出现的课程默认可见。
+    </p>
+    <div id="courses-status"></div>
+    <div id="list"></div>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
