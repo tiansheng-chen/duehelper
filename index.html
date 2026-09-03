@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DueHelper — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2.25rem; }
+  .updated { color: #777; font-size: .875rem; margin-top: 0; }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: .875em; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  hr { border: none; border-top: 1px solid #8883; margin: 2.5rem 0 1.5rem; }
+  footer { color: #777; font-size: .875rem; }
+</style>
+</head>
+<body>
+
+<h1>DueHelper — Privacy Policy</h1>
+<p class="updated">Last updated: 3 September 2026</p>
+
+<p>
+  DueHelper is a browser extension that displays your own Canvas LMS assignment
+  deadlines and submission status in a popup. This policy explains exactly what
+  the extension does and does not do with your data.
+</p>
+
+<h2>Summary</h2>
+<p>
+  <strong>DueHelper does not collect, transmit, sell, or share any user data.</strong>
+  There is no backend server, no analytics, and no third-party service of any kind.
+  All processing happens locally in your browser.
+</p>
+
+<h2>What the extension accesses</h2>
+<ul>
+  <li>
+    <strong>Canvas API data.</strong> When you open the popup, the extension makes
+    read-only requests to the Canvas domain you configured, using your existing
+    browser session. It reads your course list, planner items, assignments, and
+    your own submission status and scores.
+  </li>
+  <li>
+    <strong>Nothing else.</strong> The extension does not read page content, browsing
+    history, cookies, form inputs, or any site other than the Canvas domain you
+    explicitly authorised.
+  </li>
+</ul>
+
+<h2>Where data goes</h2>
+<p>
+  Canvas responses are held in memory only for as long as the popup is open and are
+  rendered directly into the popup. They are never written to disk, never sent
+  anywhere, and are discarded when the popup closes.
+</p>
+
+<h2>What is stored</h2>
+<p>
+  Two small preferences are saved using Chrome's <code>storage.sync</code> API, which
+  keeps them in your own Google account and syncs them across your signed-in Chrome
+  browsers:
+</p>
+<ul>
+  <li><code>canvasHost</code> — the Canvas domain you entered (e.g. <code>canvas.example.edu</code>)</li>
+  <li><code>hiddenCourseIds</code> — the numeric IDs of courses you chose to hide</li>
+</ul>
+<p>
+  No assignment titles, grades, dates, or personal information are stored. Uninstalling
+  the extension removes these preferences.
+</p>
+
+<h2>Permissions and why they are needed</h2>
+<ul>
+  <li>
+    <strong><code>storage</code></strong> — to remember your Canvas domain and which
+    courses you have hidden.
+  </li>
+  <li>
+    <strong><code>optional_host_permissions: https://*/*</code></strong> — every
+    university runs Canvas on its own domain, and there is no public registry of them,
+    so the extension cannot list them ahead of time. Instead it requests no host access
+    at install time. When you enter your school's domain in the settings page, Chrome
+    prompts you to grant access to that single domain only. The extension can only reach
+    the domain you approved.
+  </li>
+</ul>
+
+<h2>Third parties</h2>
+<p>
+  None. No analytics, no crash reporting, no advertising, no external libraries loaded
+  at runtime. DueHelper is not affiliated with, endorsed by, or sponsored by Instructure,
+  Inc. Canvas is a trademark of Instructure, Inc.
+</p>
+
+<h2>Children's privacy</h2>
+<p>
+  The extension collects no data from anyone, including children.
+</p>
+
+<h2>Changes to this policy</h2>
+<p>
+  If this policy changes, the updated version will be published at this URL with a new
+  date at the top.
+</p>
+
+<h2>Contact</h2>
+<p>
+  Questions about this policy: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+</p>
+
+<hr>
+<footer>DueHelper is an independent, open-source project.</footer>
+
+</body>
+</html>
